@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="school_managemet_list">
+      <field name="name">school_managemet_list</field>
+      <field name="model">school.management</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="student_name" string='Name'/>
+          <field name="student_roll" string='ROll no.'/>
+          <field name="student_modile" string='Mobile no.'/>
+          <field name="student_age" string="Age"/>
+          <field name="student_address" string="Address"/>
+          <field name="student_gender" string="Gender"/>
+          <field name="student_birth_date" string="Birth Date"/>
+          <field name="student_description" string="Description"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="school_managemet_form">
+      <field name="name">school_managemet_form</field>
+      <field name="model">school.management</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button name="button_in_confirm" class="oe_highlight" string="Confirm" type="object" help="Move Appointment to confirm state"/>
+          </header>
+          <sheet>
+            <div name="button_box" position="inside">
+              <button class="oe_stat_button" type="object" string='Student' name="action_view_student"  icon='fa-pencil-square-o'>
+                  <field string="Student" name="student_count" widget="statinfo" />
+              </button>
+            </div>
+            <div class='oe_title'>
+                <h1>
+                    <field name="student_name"/>
+                </h1>
+            </div>
+            <group>
+              <field name="student_roll" string='ROll no.'/>
+              <field name="student_modile" string='Mobile no.'/>
+              <field name="student_age" string="Age"/>
+              <field name="student_address" string="Address"/>
+              <field name="student_gender" string="Gender"/>
+              <field name="student_birth_date" string="Birth Date"/>
+              <field name="student_description" string="Description"/>
+            </group>   
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_school_management">
+      <field name="name">school management window</field>
+      <field name="res_model">school.management</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_school_management" name="Teacher"  />
+    <menuitem id="menu_detail" name="Details" parent="menu_school_management" sequence="50" action="action_school_management"/>
+    <menuitem id="menu_course" name="Course" parent="menu_school_management" sequence="60" action="action_course_course"/>
+
+</odoo>
