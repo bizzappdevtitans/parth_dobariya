@@ -218,7 +218,7 @@ class StudentStudent(models.Model):
     height = fields.Float("Height", help="Hieght in C.M")
     weight = fields.Float("Weight", help="Weight in K.G")
     eye = fields.Boolean("Eyes", help="Eye for medical info")
-    ear = fields.Boolean("Ears", help="Eye for medical info")
+    ear = fields.Boolean("Ears", help="Ear for medical info")
     nose_throat = fields.Boolean(
         "Nose & Throat", help="Nose & Throat for medical info"
     )
