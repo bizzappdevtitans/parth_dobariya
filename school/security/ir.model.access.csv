@@ -40,7 +40,7 @@ access_subject_subject_parent,subject.subject,model_subject_subject,group_school
 access_school_school_parent,school.school,model_school_school,group_school_parent,1,0,0,0
 access_standard_standard_parent,standard.standard,model_standard_standard,group_school_parent,1,0,0,0
 access_school_standard_parent,school.standard,model_school_standard,group_school_parent,1,0,0,0
-access_student_student_parent,student.student,model_student_student,group_school_parent,1,0,0,0
+access_student_student_parent,student.student,model_student_student,group_school_parent,1,1,1,1
 access_subject_elective_parent,subject.elective,model_subject_elective,group_school_parent,1,0,0,0
 access_mother_toungue_parent,mother.toungue,model_mother_toungue,group_school_parent,1,0,0,0
 access_student_award_parent,student.award,model_student_award,group_school_parent,1,0,0,0
@@ -88,7 +88,7 @@ access_student_award_student,student.award,school.model_student_award,group_scho
 access_student_previous_school_student,student.previous.school,school.model_student_previous_school,group_school_student,1,0,0,0
 access_student_family_contact_student,student.family.contact,school.model_student_family_contact,group_school_student,1,0,0,0
 access_student_reference_student,student.reference,school.model_student_reference,group_school_student,1,0,0,0
-access_student_student_user,student.student,school.model_student_student,group_school_student,1,0,0,0
+access_student_student_user,student.student,school.model_student_student,group_school_student,1,1,1,1
 access_academic_month_student,academic.month,school.model_academic_month,group_school_student,1,0,0,0
 access_academic_year_student,academic.year,school.model_academic_year,group_school_student,1,0,0,0
 access_grade_master_sudent,grade.master,school.model_grade_master,group_school_student,1,0,0,0
@@ -105,7 +105,7 @@ access_subject_subject_teacher,subject.subject,model_subject_subject,group_schoo
 access_school_school_teacher,school.school,model_school_school,group_school_teacher,1,0,0,0
 access_standard_standard_teacher,standard.standard,model_standard_standard,group_school_teacher,1,1,1,0
 access_school_standard_teacher,school.standard,model_school_standard,group_school_teacher,1,0,0,0
-access_student_student_teacher,student.student,model_student_student,group_school_teacher,1,1,0,0
+access_student_student_teacher,student.student,model_student_student,group_school_teacher,1,1,1,1
 access_subject_elective_teacher,subject.elective,model_subject_elective,group_school_teacher,1,1,1,0
 access_hr_employee_teacher,school.teacher,model_school_teacher,group_school_teacher,1,1,0,0
 access_student_reference_teacher,student.reference,model_student_reference,group_school_teacher,1,1,1,0
@@ -131,7 +131,7 @@ access_teacher_reminder_teacher,student.reminder,model_student_reminder,group_sc
 access_subject_syllabus_teacher,subject.syllabus,model_subject_syllabus,group_school_teacher,1,1,1,0
 access_resource_resource_teacher,resource.resource,resource.model_resource_resource,group_school_teacher,1,1,0,0
 access_res_users_teacher,res.users,base.model_res_users,group_school_teacher,1,1,0,0
-access_student_in_admission,student.student,model_student_student,group_is_admission,1,0,0,0
+access_student_in_admission,student.student,model_student_student,group_is_admission,1,1,1,1
 access_standard_medium_student_is_admission,standard.medium,school.model_standard_medium,group_is_admission,1,0,0,0
 access_subject_subject_student_is_admission,subject.subject,school.model_subject_subject,group_is_admission,1,0,0,0
 access_school_school_student_is_admission,school.school,school.model_school_school,group_is_admission,1,0,0,0
@@ -155,7 +155,7 @@ access_student_award_student_admission,student.award,school.model_student_award,
 access_student_previous_school_student_is_admision,student.previous.school,school.model_student_previous_school,group_is_admission,1,0,0,0
 access_student_family_contact_student_isadmission,student.family.contact,school.model_student_family_contact,group_is_admission,1,0,0,0
 access_student_reference_student_admissions,student.reference,school.model_student_reference,group_is_admission,1,0,0,0
-access_student_student_user_in_admisions,student.student,school.model_student_student,group_is_admission,1,1,0,0
+access_student_student_user_in_admisions,student.student,school.model_student_student,group_is_admission,1,1,1,1
 access_academic_month_student_is_admission,academic.month,school.model_academic_month,group_is_admission,1,0,0,0
 access_academic_year_student_admissionss,academic.year,school.model_academic_year,group_is_admission,1,0,0,0
 access_grade_master_sudent_admission_school,grade.master,school.model_grade_master,group_is_admission,1,0,0,0

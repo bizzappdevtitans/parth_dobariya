@@ -15,6 +15,7 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="buttons"></div>
+                    <!-- <field name="pid" invisible="1"/> -->
                     <div class="oe_inline">
                         <newline />
                         <separator string="Personal Information" />
@@ -31,7 +32,7 @@
                                 <br />
                                 <field name="last" placeholder="Last Name" nolabel="1" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
                                 <br />
-                                <field name="pid" invisible="1"/>
+                                <!-- <field name="pid" invisible="1"/> -->
                             </group>
                         </div>
                     </div>
@@ -432,12 +433,22 @@
                     <field name="state" widget="statusbar" statusbar_visible="draft,cancel"/>
                 </header>
                 <sheet>
+                    <field name="pid" nolabel="1"   readonly="1"/>
                     <!-- create smart button in Admission Register -->
                     <div class="oe_button_box" name="button_box">
                         <button class="oe_stat_button"  string="Student record" name="show_button"
                             icon="fa-user">
                         </button>
                     </div>
+                    <!-- <data>
+                    <record id="seq_school_student" model="ir.sequence">
+                        <field name="name">student Sequence</field>
+                        <field name="code">student.student</field>
+                        <field name="prefix">S00</field>
+                        <field name="padding">5</field>
+                        <field name="company_id" eval="False"/>
+                    </record>
+                    </data> -->
                     <div class="oe_inline">
                         <newline />
                         <separator string="Personal Information" />
@@ -618,7 +629,7 @@
     <record id="view_student_student_tree_2" model="ir.ui.view">
         <field name="name">student.student.tree.2</field>
         <field name="model">student.student</field>
-        <field name="arch" type="xml">
+        <field name="arch" type="xml">  
             <tree string="Admission Register">
                 <field name="pid" />
                 <field name="name" />

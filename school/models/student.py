@@ -67,9 +67,7 @@ class StudentStudent(models.Model):
     @api.model
     def _default_image(self):
         """Method to get default Image"""
-        image_path = get_module_resource(
-            "hr", "static/src/img", "default_image.png"
-        )
+        image_path = get_module_resource("hr", "static/src/img", "default_image.png")
         return base64.b64encode(open(image_path, "rb").read())
 
     @api.depends("state")
@@ -114,6 +112,7 @@ class StudentStudent(models.Model):
         related="user_id.name",
         store=True,
         readonly=True,
+        required=True,
         help="Student Name",
     )
     pid = fields.Char(
@@ -122,18 +121,12 @@ class StudentStudent(models.Model):
         default=lambda self: _("New"),
         help="Personal IDentification Number",
     )
-    reg_code = fields.Char(
-        "Registration Code", help="Student Registration Code"
-    )
+    reg_code = fields.Char("Registration Code", help="Student Registration Code")
     student_code = fields.Char("Student Code", help="Enter student code")
     contact_phone = fields.Char("Phone no.", help="Enter student phone no.")
     contact_mobile = fields.Char("Mobile no", help="Enter student mobile no.")
-    roll_no = fields.Integer(
-        "Roll No.", readonly=True, help="Enter student roll no."
-    )
-    photo = fields.Binary(
-        "Photo", default=_default_image, help="Attach student photo"
-    )
+    roll_no = fields.Integer("Roll No.", readonly=True, help="Enter student roll no.")
+    photo = fields.Binary("Photo", default=_default_image, help="Attach student photo")
     year = fields.Many2one(
         "academic.year",
         "Academic Year",
@@ -219,18 +212,12 @@ class StudentStudent(models.Model):
     weight = fields.Float("Weight", help="Weight in K.G")
     eye = fields.Boolean("Eyes", help="Eye for medical info")
     ear = fields.Boolean("Ears", help="Ear for medical info")
-    nose_throat = fields.Boolean(
-        "Nose & Throat", help="Nose & Throat for medical info"
-    )
-    respiratory = fields.Boolean(
-        "Respiratory", help="Respiratory for medical info"
-    )
+    nose_throat = fields.Boolean("Nose & Throat", help="Nose & Throat for medical info")
+    respiratory = fields.Boolean("Respiratory", help="Respiratory for medical info")
     cardiovascular = fields.Boolean(
         "Cardiovascular", help="Cardiovascular for medical info"
     )
-    neurological = fields.Boolean(
-        "Neurological", help="Neurological for medical info"
-    )
+    neurological = fields.Boolean("Neurological", help="Neurological for medical info")
     muskoskeletal = fields.Boolean(
         "Musculoskeletal", help="Musculoskeletal for medical info"
     )
@@ -356,16 +343,14 @@ class StudentStudent(models.Model):
     def create(self, vals):
         """Method to create user when student is created"""
         if vals.get("pid", _("New")) == _("New"):
-            vals["pid"] = self.env["ir.sequence"].next_by_code(
-                "student.student"
-            ) or _("New")
+            vals["pid"] = self.env["ir.sequence"].next_by_code("student.student") or _(
+                "New"
+            )
         if vals.get("pid", False):
             vals["login"] = vals["pid"]
             vals["password"] = vals["pid"]
         else:
-            raise UserError(
-                _("Error! PID not valid so record will not be saved.")
-            )
+            raise UserError(_("Error! PID not valid so record will not be saved."))
         if vals.get("company_id", False):
             company_vals = {"company_ids": [(4, vals.get("company_id"))]}
             vals.update(company_vals)
@@ -452,19 +437,14 @@ class StudentStudent(models.Model):
                 raise ValidationError(_("Please select class!"))
             if rec.standard_id.remaining_seats <= 0:
                 raise ValidationError(
-                    _("Seats of class %s are full")
-                    % rec.standard_id.standard_id.name
+                    _("Seats of class %s are full") % rec.standard_id.standard_id.name
                 )
             domain = [("school_id", "=", rec.school_id.id)]
             # Checks the standard if not defined raise error
             if not school_standard_obj.search(domain):
-                raise UserError(
-                    _("Warning! The standard is not defined in school!")
-                )
+                raise UserError(_("Warning! The standard is not defined in school!"))
             # Assign group to student
-            rec.user_id.write(
-                {"groups_id": [(6, 0, [emp_group.id, student_group.id])]}
-            )
+            rec.user_id.write({"groups_id": [(6, 0, [emp_group.id, student_group.id])]})
             # Assign roll no to student
             number = 1
             for rec_std in rec.search(domain):

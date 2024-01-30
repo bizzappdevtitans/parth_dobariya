@@ -1,5 +1,5 @@
 <odoo>
-		<!-- Menu Item Of EMS -->
+	<!-- Menu Item Of EMS -->
     <menuitem id="menu_ems" name="EMS" sequence="1"/>
     <!-- MenuItem Of Admission Register -->
     <menuitem id="admission_register" name="School" parent="menu_ems" sequence="2" />
