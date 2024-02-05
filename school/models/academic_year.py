@@ -42,6 +42,8 @@ class AcademicYear(models.Model):
         if year_rec:
             return year_rec.id or False
 
+
+    # ORM name_get method 
     def name_get(self):
         """Method to display name and code"""
         return [(rec.id, " [" + rec.code + "]" + rec.name) for rec in self]

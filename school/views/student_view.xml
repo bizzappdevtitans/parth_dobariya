@@ -368,7 +368,7 @@
                                 <div class="oe_kanban_box_content oe_kanban_color_bglight oe_kanban_box_show_onclick_trigger oe_kanban_color_border">
                                     <table class="oe_kanban_table">
                                         <tr width="300">
-                                            <td valign="top" width="64" align="left">
+                                            <td valign="top" width="64" align="right">
                                                 <a type="open">
                                                     <img heigh="80" width="80" t-att-src="kanban_image('student.student', 'photo', record.id.raw_value)" alt="image"/>
                                                 </a>

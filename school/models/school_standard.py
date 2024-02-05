@@ -145,6 +145,7 @@ class SchoolStandard(models.Model):
         ):
             raise ValidationError(_("Division and class should be unique!"))
 
+    # ORM unlink method 
     def unlink(self):
         """Method to check unique standard."""
         for rec in self:

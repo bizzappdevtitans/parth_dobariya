@@ -12,7 +12,7 @@
     "data": [
         "security/school_security.xml",
         "security/ir.model.access.csv",
-        "data/student_sequence.xml",
+        # "data/student_sequence.xml",
         "data/mail_template.xml",
         "wizard/terminate_reason_view.xml",
         "views/student_view.xml",
