@@ -92,6 +92,13 @@ class StudentStudent(models.Model):
             )
         return res.id
 
+    # name_search method
+    # @api.model
+    # def name_search(self):
+    #     """Method to get default value of logged in Student"""
+    #     res = self.env["student.student"].search([("name", "=", True)])
+    #     return res
+
     family_con_ids = fields.One2many(
         "student.family.contact",
         "family_contact_id",
