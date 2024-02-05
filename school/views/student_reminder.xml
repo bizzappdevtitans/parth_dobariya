@@ -1,0 +1,110 @@
+
+
+<odoo>
+		<!-- Form View Of Student Reminder -->
+    <record id="view_student_reminder_form_2" model="ir.ui.view">
+        <field name="name">student.reminder.form</field>
+        <field name="model">student.reminder</field>
+        <field name="arch" type="xml">
+            <form string="Student Reminder">
+                <sheet>
+                    <separator string="Reminder" />
+                    <group col="4" colspan="4">
+                        <field name="stu_id" widget="selection" placeholder="Student" domain="[('state','=','done')]"/>
+                        <field name="date" placeholder="Select Date" />
+                        <field name="name" placeholder="Reminder Title" required="1"/>
+                        <newline />
+                        <field name="description" colspan="4" placeholder="Description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Kanban View Of Student Reminder -->
+    <record id="student_reminder_kanban_view" model="ir.ui.view">
+        <field name="name">Student KANBAN</field>
+        <field name="model">student.reminder</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="date">
+                <field name="name" />
+                <field name="date" />
+                <field name="color" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}} oe_kanban_global_click_edit oe_semantic_html_override">
+                            <div class="oe_dropdown_toggle oe_dropdown_kanban">
+                                <ul class="oe_dropdown_menu">
+                                    <li>
+                                        <a type="edit">Edit...</a>
+                                    </li>
+                                    <li>
+                                        <a type="delete">Delete</a>
+                                    </li>
+                                    <li>
+                                        <ul class="oe_kanban_colorpicker" data-field="color" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="oe_kanban_box_header oe_kanban_color_bgdark oe_kanban_color_border oe_kanban_draghandle">
+                                <table class="oe_kanban_table">
+                                    <tr>
+                                        <td class="oe_kanban_title1" align="left" valign="middle" style="padding-left:10px;">
+                                            <h4>
+                                                <a type="open">
+                                                    <field name="date" />
+                                                    <field name="name" />
+                                                </a>
+                                            </h4>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br />
+                            </div>
+                            <div class="oe_kanban_box_content oe_kanban_color_bglight oe_kanban_box_show_onclick_trigger oe_kanban_color_border">
+                                <table class="oe_kanban_table">
+                                    <tr width="300">
+                                        <td valign="top" align="left" style="padding-left:10px;">
+                                            <table>
+                                                <tr>
+                                                    <td>Name :</td>
+                                                    <td style="padding-left:10px;">
+                                                        <b>
+                                                            <field name="name" />
+                                                        </b>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Date : </td>
+                                                    <td style="padding-left:10px;">
+                                                        <b>
+                                                            <field name="date" />
+                                                        </b>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Description : </td>
+                                                    <td style="padding-left:10px;">
+                                                        <b>
+                                                            <field name="description" />
+                                                        </b>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="oe_kanban_buttons_set oe_kanban_color_border oe_kanban_color_bglight oe_kanban_box_show_onclick">
+                                <div class="oe_kanban_left" style="margin-left:10px;">
+                                    <br />
+                                    <a role="button" string="Edit" class="btn btn-sm btn-default fa fa-pencil" type="edit" aria-label="edit" title="edit"/>
+                                </div>
+                                <br class="oe_kanban_clear" />
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>
